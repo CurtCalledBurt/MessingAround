@@ -1,5 +1,6 @@
 import cmath, math, sympy
 from sympy import symbols
+import inspect
 
 
 x, a, b, c, d = symbols('x a b c d')
@@ -11,10 +12,14 @@ solution1 = (expr1 + expr2**(1/2))**(1/3) + (expr1 - expr2**(1/2))**(1/3) - b/(3
 solution2 = (expr1 + expr2**(1/2))**(1/3) + (expr1 + expr2**(1/2))**(1/3) - b/(3*a)
 solution3 = (expr1 - expr2**(1/2))**(1/3) + (expr1 - expr2**(1/2))**(1/3) - b/(3*a)
 
-x**3 - 1
+expr = x**3 - 1
 
 print(solution1.subs({a: 1, b: 0, c: 0, d: -1}))
 print(solution2.subs({a: 1, b: 0, c: 0, d: -1}))
 print(solution3.subs({a: 1, b: 0, c: 0, d: -1}))
 
+
+print(sympy.solve(expr))
+
+# print(inspect.getsource(sympy.solve))
 
