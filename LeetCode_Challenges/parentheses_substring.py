@@ -1,5 +1,5 @@
 string = "(()"
-string = "(()()((((())))))))()(()()()"
+string = "(()())((((())))))))()(()("
 
 def longest_parenth_substring(string):
     max_length = 0
@@ -25,3 +25,5 @@ def longest_parenth_substring(string):
     return max_length
 
 print(longest_parenth_substring(string))
+
+
