@@ -1,5 +1,5 @@
 # Farey addition
-
+from math import modf, pi
 # takes a decimal expansion, between 0 and 1, and finds the fraction closest to it
 
 # initialize left fraction, initialize right fraction, 
@@ -12,11 +12,10 @@
 
 # repeat as many times as we say to repeat the process
 
+x = 11**6 / 13 / pi
+decimal , integer = modf(x)
 
-decimal = 0.3493827202
-approximation = 1000000000000
-approx_numerator = 0
-approx_denominator = 1
+approximation = float('inf')
 
 left_numerator = 0
 left_denominator = 1
@@ -24,7 +23,7 @@ left_denominator = 1
 right_numerator = 1
 right_denominator = 1
 
-iterations = 1_000_000
+iterations = 100_00
 
 for _ in range(iterations):
     new_numerator = left_numerator + right_numerator
@@ -47,9 +46,13 @@ for _ in range(iterations):
         approx_numerator = right_numerator
         approx_denominator = right_denominator
 
+approximation = integer + approximation
+print('original number as a decimal: ', x)
+print('approximation of orignal number as a decimal expansion', approximation, '\n')
 
-print(decimal)
-print(approximation, '\n')
+approx_numerator = integer * approx_denominator + approx_numerator
+approx_numerator = int(approx_numerator)
+print('approximation of number as a fraction: ')
 print(approx_numerator)
 print('-----------')
 print(approx_denominator)
